@@ -59,3 +59,37 @@ public class SWE {
 	}
 
 }
+
+# some Basic java function with seleium
+
+## new basic test with xpath locator
+### 04/11/20
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstTestCase {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.google.com/");
+		driver.manage().window().maximize();
+		
+		WebElement textbox = driver.findElement(By.xpath("//input[@name='q']"));
+		textbox.sendKeys("automation");
+		
+		
+		List<WebElement> ListOfInputElement = driver.findElements(By.xpath("//input"));
+		int count = ListOfInputElement.size();
+		System.out.println("Count of input element : "+ count);
+		
+
+	}
+
+}
