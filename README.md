@@ -22,7 +22,7 @@ public class SWE {
 
 # same code only with WebManager!
 
-## note that more packages are imported since u use multiple browsers
+## note that more packages are imported since i use multiple browsers
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -60,7 +60,7 @@ public class SWE {
 
 }
 
-# some Basic java function with seleium
+# some Basic java function with selenium
 
 ## new basic test with xpath locator
 ### 04/11/20
