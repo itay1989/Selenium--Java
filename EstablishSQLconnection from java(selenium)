@@ -1,0 +1,30 @@
+#driver loud and connection to Sql from java
+
+## driver connector should be installed with mysql 
+### connector version and mysql version  
+
+package DBTest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import org.testng.annotations.Test;
+
+public class connectMySQL {
+
+
+	@Test
+	public void TestDB() throws ClassNotFoundException, SQLException {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		System.out.println("Driver Loaded");
+
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Dbtest?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root", "******");
+				System.out.println("Connection created");
+
+	}
+}
+
+## this code resolves the time zone error popping up when trying to connect to the DB. place it after the  ? after the the DB name : DBname?.... 
+### useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
