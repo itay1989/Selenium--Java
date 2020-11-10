@@ -10,6 +10,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud.Find;
+
 public class connectMySQL {
 
 	static Connection con = null;
@@ -36,23 +38,41 @@ public class connectMySQL {
 
 	}
 
+	
 	@Test
 	public void test() {
+		
+		String DbName = "records";
 		try {
-			String query = "select * from workers";
+			String query = "select * from "+ DbName;
 			ResultSet res = stmt.executeQuery(query);
 			
 			while(res.next()) {
 				System.out.print(res.getString(1));
-				System.out.print("\t" + res.getString(2));
-				System.out.println("\t" + res.getString(3));
+				System.out.print("\t\t" + res.getString(2));
+				
 				
 			}
+			
+			
 		}
 			catch(Exception e) {
 				e.printStackTrace();
 			}
 			
+		try {
+			String namecheck = "select * from " + DbName+ " where names='eran'";
+			ResultSet res = stmt.executeQuery(namecheck);
+			
+			while(res.next()) {
+				System.out.print("\n" + res.getString(1));
+			}
+					
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		}
 		
 		@AfterTest
