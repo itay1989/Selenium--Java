@@ -1,0 +1,63 @@
+package com.linux.foundations;
+
+
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class FirstTestCase {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.google.com/");
+		System.out.println(driver.getTitle());
+		System.out.println(driver.getCurrentUrl());
+		driver.manage().window().maximize();
+		
+		WebElement textbox = driver.findElement(By.xpath("//input[@name='q']"));
+		textbox.sendKeys("automation");
+		
+		Thread.sleep(4000);
+		
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		
+		driver.findElement(By.id("divpaxinfo")).click();
+		
+		Thread.sleep(2000);
+		# comment out the while loop to test with it 
+	/**	int i=1;
+		while(i<5)
+		{
+			driver.findElement(By.id("hrefIncAdt")).click();
+			
+			i++;
+		}**/
+    ##
+    
+		for(int i=1;i<5;i++)
+		{
+			driver.findElement(By.id("hrefIncAdt")).click();
+		}
+		
+		Thread.sleep(3000);
+		driver.navigate().back();
+		Thread.sleep(3000);
+		
+		driver.close();
+		
+		List<WebElement> ListOfInputElement = driver.findElements(By.xpath("//input"));
+		int count = ListOfInputElement.size();
+		System.out.println("Count of input element : "+ count);
+		
+
+	}
+
+}
