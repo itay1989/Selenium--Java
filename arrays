@@ -39,6 +39,8 @@ public class MoreTests {
 			{
 				j++;
 				//click Add to cart
+				//below the element used before was text. in that case the text button change the text when hovering it.
+				//so its recommanded to not use elements bases on texts.
 				driver.findElements(By.xpath("//div[@class='product-action']")).get(i).click();
 				
 				if(j==itemsNeeded.length)
