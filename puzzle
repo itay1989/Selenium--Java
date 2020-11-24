@@ -18,6 +18,11 @@ public class puzzle {
 			{
 				if(abc[i][j]<min)
 				{
+				
+	 // below the min(variable) update in case the if condition is met. 
+		//if there is few numbers in the array that meet the condition it will still get the lowest because it updates. debug is recommanded to grasp this concept.
+		   //int abc[][]= {{2,4,5},{3,4,7},{1,0,9}};
+		   //above an example of array with 2 numbers that will will the condition. 
 					min=abc[i][j];
 				}
 
